@@ -186,6 +186,8 @@ Hand this to yourself after both agents "set up home":
 
 Personal research lab, built around the author's own machine layout. CI covers the token router, the experiment forge and the CLI facade.
 
+Built by Marcus Richards, directing AI coding agents.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
