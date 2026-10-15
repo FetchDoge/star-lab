@@ -68,7 +68,7 @@ Star Lab is implemented as monorepo `<path-to-star-lab>` with facade `bin/lab`, 
 | Sandbox | `modules/sandbox/` | Seatbelt profiles | **Limits** (execution envelope) |
 | SessionStart hooks | `packaging/hooks/` | Arms token policy every session | Weak contact (boot, not event bus) |
 | Home runtime | `~/.grok/` memory, skills, rules, safety | Global mind scaffolding | Shared tissue, not project body |
-| Demo project | `~/Projects/starlab-demo` | hello + tests + AGENTS.md; forge exit 0; gym 3/3 | Candidate **project body** (thin) |
+| Demo project | `<path-to-starlab-demo>` | hello + tests + AGENTS.md; forge exit 0; gym 3/3 | Candidate **project body** (thin) |
 
 ### Pain points (why body now)
 
@@ -416,7 +416,7 @@ PR-B3 test: boot-like route (`session_boot` / `no_charge`) does **not** inflate 
   "identity": {
     "address": "project://starlab-demo",
     "domain": null,
-    "repo_path": "~/Projects/starlab-demo",
+    "repo_path": "<path-to-starlab-demo>",
     "created_ts": 0,
     "description": "Vertical-slice project body for Star Lab e2e"
   },
@@ -638,7 +638,7 @@ flowchart LR
 
 | Facet | Content |
 |-------|---------|
-| Identity | `project:starlab-demo` → `~/Projects/starlab-demo` |
+| Identity | `project:starlab-demo` → `<path-to-starlab-demo>` |
 | Property | **Project tier:** git tree, tests, forge/design/showroom/research rows with `project=starlab-demo` |
 | Contact | forge_exit, ship_check, cli_event (resolve via `--project` / cwd) |
 | Limits | mode_cap `medium`; day budget modest (e.g. 50k); `--approve` for publish |
@@ -650,7 +650,7 @@ flowchart LR
 
 ```bash
 # one-time
-lab body init --kind project --name starlab-demo --repo ~/Projects/starlab-demo
+lab body init --kind project --name starlab-demo --repo <path-to-starlab-demo>
 
 # force a failing validation (or use a deliberate failing cmd)
 lab forge run --exp starlab-demo --project starlab-demo -- \
@@ -1080,7 +1080,7 @@ Honesty: headless multi-agent Rhai remains session-tier (existing Star Lab non-g
 - `docs/PAPER-TO-LAB-MAP.md` — Grok OS paper loops ↔ CLI
 - `docs/research/GROK-OS-PAPER.md`
 - Code: `bin/lab`, `modules/{tokens,graph,research,forge,ship,showroom,sqc,knowledge,design,dock,sandbox,arena,observatory,imagine}/`, `lib/lab_paths.py`, `scripts/install-lab.sh`, `packaging/hooks/`, `packaging/skills/`
-- Demo: `~/Projects/starlab-demo`, showroom entry `starlab-demo-first-e2e-forge-tests-gym-s-20260801`
+- Demo: `<path-to-starlab-demo>`, showroom entry `starlab-demo-first-e2e-forge-tests-gym-s-20260801`
 - Breaker autonomy order: `docs/design/2026-08-01-agentic-circuit-breakers.md` (session lock / `min_mode` / tokens PR3)
 
 ---

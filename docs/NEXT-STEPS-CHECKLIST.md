@@ -19,7 +19,7 @@
 
 ## 1. Use the lab on one real task
 
-- [x] Create `~/Projects/starlab-demo` (hello.py + unittest + AGENTS.md)
+- [x] Create `<path-to-starlab-demo>` (hello.py + unittest + AGENTS.md)
 - [x] `lab tokens route` → **mode=short**, budget=512, audit=`7578a2e61eaa`
 - [x] Unit tests pass (`python3 -m unittest discover -s tests`)
 - [x] `lab forge run --exp starlab-demo -- …unittest…` → **completed exit 0**

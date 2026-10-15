@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|--------|
 | **Document** | Grok Star Lab Design |
-| **Author** | Grok Build (design-doc-writer) |
+| **Author** | Marcus Richards |
 | **Date** | 2026-07-31 |
 | **Status** | Ready for implementation (rev 3 — user decisions) |
 | **Audience** | Senior engineers implementing on host `a100` (macOS) |
@@ -45,7 +45,7 @@ The lab is implemented by **expanding the existing monorepo path** `<path-to-sta
 | Sandbox config | `~/.grok/sandbox.toml` | **missing today** — lab install creates |
 | Tooling | `~/homebrew` + `~/.local/bin` | brew, rg, fd, fzf, gh, node v22, python3.9.6, jq |
 | Models | Ollama `dolphin3:latest` (~4.9 GB) on `localhost:11434` | local inference present |
-| Demo | `~/Projects/claude-compare-demo` | runnable HTML proof |
+| Demo | `<path-to-claude-compare-demo>` | runnable HTML proof |
 | Disk | ~1.6 TiB free on home volume | headroom for lab data |
 | Sessions | `~/.grok/sessions/` (~7.5M early) | separate from lab knowledge index |
 | Aliases | `~/.bashrc` | `ghstatus`, `ghdoctor`, `ghdash`; `$PROJECTS`; brew shellenv |
@@ -1175,7 +1175,7 @@ All previously open product questions are resolved by user decision (rev 3). Non
 | home-audit workflow | `~/.grok/workflows/home-audit.rhai` |
 | Sandbox docs | `~/.grok/docs/user-guide/18-sandbox.md` |
 | Design / workflow skills | `~/.grok/bundled/skills/design`, `create-workflow` |
-| Demo | `~/Projects/claude-compare-demo` |
+| Demo | `<path-to-claude-compare-demo>` |
 
 ---
 
