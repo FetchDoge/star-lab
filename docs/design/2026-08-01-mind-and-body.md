@@ -6,7 +6,7 @@
 | **Author** | Grok Star Lab design loop |
 | **Date** | 2026-08-01 |
 | **Status** | Draft (rev 3 — resolve order + budget polish) |
-| **Repo** | `~/Projects/grok-home` |
+| **Repo** | `<path-to-star-lab>` |
 | **Audience** | Senior engineers extending the free offline Mac-local control plane (multi-tenant is schema room only) |
 | **Python baseline** | 3.9+ (host ships 3.9.6; avoid 3.10+ syntax) |
 | **Thesis source** | [@stablechen (Will Chen), 2026-07-24](https://x.com/stablechen/status/2080698585176494277) |
@@ -47,7 +47,7 @@ From [@stablechen, 2026-07-24](https://x.com/stablechen/status/20806985851764942
 
 ### Current state (ground truth in repo, 2026-08-01)
 
-Star Lab is implemented as monorepo `~/Projects/grok-home` with facade `bin/lab`, mutable state `~/.grok/lab/`, packaging into `~/.grok/` via `lab install`.
+Star Lab is implemented as monorepo `<path-to-star-lab>` with facade `bin/lab`, mutable state `~/.grok/lab/`, packaging into `~/.grok/` via `lab install`.
 
 | Surface | Path | Role today | Body-lens label |
 |---------|------|------------|-----------------|
@@ -218,7 +218,7 @@ Body
 | `name` | Grok Star Lab control plane | starlab-demo |
 | `domain` | local (no public DNS v1) | local |
 | `address` | `lab://grok-home` (CLI/logical) | `project://starlab-demo` → `~/Projects/starlab-demo` |
-| `repo_path` | `~/Projects/grok-home` | `~/Projects/starlab-demo` |
+| `repo_path` | `<path-to-star-lab>` | `~/Projects/starlab-demo` |
 | `tenant` | `local` | `local` |
 
 **Address** is the anti-chatbot edge: something the world (hooks, webhooks, scripts) can target without a chat open.
@@ -229,7 +229,7 @@ SQLite files under `~/.grok/lab/*.db` are **shared infrastructure**, not exclusi
 
 | Tier | What counts as property | Examples |
 |------|-------------------------|----------|
-| **Lab body** (`lab:grok-home`) | Control-plane state + lab-repo artifacts | Body registry; rollout/shadow/token policy **global** state; lab doctor/KPI boards; forge/design/showroom rows with `project=grok-home` or `body_id=lab:grok-home`; repo `~/Projects/grok-home` |
+| **Lab body** (`lab:grok-home`) | Control-plane state + lab-repo artifacts | Body registry; rollout/shadow/token policy **global** state; lab doctor/KPI boards; forge/design/showroom rows with `project=grok-home` or `body_id=lab:grok-home`; repo `<path-to-star-lab>` |
 | **Project body** (`project:*`) | Rows + paths keyed to that project | Git `repo_path`; forge/design/knowledge/showroom/research rows with matching `project_key` / `body_id`; project packets |
 | **Shared infrastructure** | On-disk multi-project stores | `experiments.db`, `token_policy.db`, `research_log.db`, `graph_routes.db`, knowledge FTS files — **filtered**, not owned |
 
@@ -626,7 +626,7 @@ flowchart LR
 
 | Facet | Content |
 |-------|---------|
-| Identity | `lab:grok-home`, address `lab://grok-home`, repo `~/Projects/grok-home` |
+| Identity | `lab:grok-home`, address `lab://grok-home`, repo `<path-to-star-lab>` |
 | Property | **Lab tier only** (KD-B17): registry, rollout/shadow/token global state, lab-repo forge/design/showroom rows, research KPI — **not** “owns all `*.db` files” |
 | Contact | SessionStart fallback, forge of lab tests, cli_event |
 | Limits | Higher day budget; mode_cap `deep` allowed; `--approve` on distill + ship publish |
@@ -711,7 +711,7 @@ lab body help
 
 # Identity / resolve
 lab body init --kind project --name starlab-demo --repo ~/Projects/starlab-demo
-lab body init --kind lab --name grok-home --repo ~/Projects/grok-home
+lab body init --kind lab --name grok-home --repo <path-to-star-lab>
 lab body list [--json]
 lab body show <body_id|name>
 lab body status <body_id>          # organs + limits + open obligations + row counts (not "owns db")

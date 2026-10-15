@@ -4,7 +4,7 @@
 |-------|--------|
 | **Module** | `lab galaxy` |
 | **Data** | `~/.grok/lab/galaxy.db`, `~/.grok/lab/galaxy/`, `metrics/daily/galaxy-YYYY-MM-DD.json` |
-| **UI** | `~/Projects/grok-home/galaxy/index.html` (file:// + embed) |
+| **UI** | `<path-to-star-lab>/galaxy/index.html` (file:// + embed) |
 | **Stack** | Python 3.9+, SQLite WAL, static HTML (offline) |
 
 ## Why

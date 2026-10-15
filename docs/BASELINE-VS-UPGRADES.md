@@ -1,7 +1,7 @@
 # Grok Star Lab — Baseline vs Upgrades
 
 **Date:** 2026-08-01  
-**Repo:** `~/Projects/grok-home` (main)  
+**Repo:** `<path-to-star-lab>` (main)  
 **Tip:** `9e62600`  
 
 ## Executive summary
