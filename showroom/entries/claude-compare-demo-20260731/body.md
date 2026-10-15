@@ -9,14 +9,14 @@ Head-to-head scorecard and runnable demo scaffold — same machine, same ask, du
 ## Paths
 
 - `docs/COMPARE-WITH-CLAUDE.md`
-- `~/Projects/claude-compare-demo`
+- `<projects-dir>/claude-compare-demo`
 
 ## Proof
 
 ```bash
-open ~/Projects/claude-compare-demo/index.html
+open <projects-dir>/claude-compare-demo/index.html
 lab showroom open
 test -f docs/COMPARE-WITH-CLAUDE.md
 ```
 
-Scorecard lives in-repo; the demo app is under `~/Projects/claude-compare-demo` for fair side-by-side review.
+Scorecard lives in-repo; the demo app is under `<projects-dir>/claude-compare-demo` for fair side-by-side review.

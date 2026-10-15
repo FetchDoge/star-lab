@@ -3,7 +3,7 @@
 Control plane vitals: doctor scores health, status one-screen, mission-control dashboard embed — offline-first proof on this Mac.
 
 - **kind:** demo
-- **project:** grok-home
+- **project:** star-lab
 - **source:** seed
 
 ## Paths

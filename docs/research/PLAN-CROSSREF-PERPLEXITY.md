@@ -93,7 +93,7 @@ Shadow workflow literature: instrument → golden set → shadow candidate → s
 | Role/token-budget in multi-agent graphs | Open | Deferred; packing `subagents` is mode-governed today — good seed |
 | Safe multi-tenant cache isolation without killing reuse | P5 instrument-first | Correct: do **not** claim hit-rate wins without KV backend; schema + prefix_id only |
 
-**SAAR-style caution:** hard-lock model/mode switches mid tool-loop. For Grok Build OS, recovery (P0) and session locks should not escalate mid-validate without completing the atomic unit.
+**SAAR-style caution:** hard-lock model/mode switches mid tool-loop. For the coding agent OS, recovery (P0) and session locks should not escalate mid-validate without completing the atomic unit.
 
 ---
 
@@ -161,7 +161,7 @@ QUESTIONS FOR YOU:
    bandit, golden before serve)?
 2) What’s missing vs production gateways (fallback chaos, cost-per-outcome,
    session locks mid tool-loop)?
-3) Any red flags applying single-price λ to Grok Build *modes* (not multi-model
+3) Any red flags applying single-price λ to the coding agent *modes* (not multi-model
    APIs) on a single Mac lab?
 4) What minimum golden-set size/stratification for mode routing (intent × length
    × difficulty)?

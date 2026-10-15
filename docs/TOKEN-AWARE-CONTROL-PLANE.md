@@ -65,7 +65,7 @@ Cheap tasks must never burn deep budgets. Long-context deep reasoning only runs 
 |---------------|---------------------|
 | Trained value head, remaining length as discounted return under constant per-token cost | Same **math shape** for `remaining_value`; free **heuristic drivers** at prompt boundary |
 | Token-level during decode | Prompt-boundary estimate + audit of actual spend (decode-time probe optional via `GROK_LENVM_CMD`) |
-| Exact length control / LIFEBench | Routing + packing + escalation policy for Grok Build |
+| Exact length control / LIFEBench | Routing + packing + escalation policy for the coding agent |
 | RL-ready value signal | Distill audits → routing rules continuously |
 
 When you can run a real LenVM probe:

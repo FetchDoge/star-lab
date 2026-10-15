@@ -35,7 +35,7 @@ Full chat logs are too large; MEMORY alone is easy to under-read. **Handoff = st
 
 | Source | What |
 |--------|------|
-| `~/Projects/*` git | name, branch, dirty?, remote github URL |
+| `<projects-dir>/*` git | name, branch, dirty?, remote github URL |
 | `lab body list` | body_id ↔ repo_path |
 | Focus set | Projects with body **or** github remote **or** dirty work |
 

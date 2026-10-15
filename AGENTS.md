@@ -1,4 +1,4 @@
-# grok-home
+# star-lab
 
 Control plane for this Mac's Grok "world stage."
 

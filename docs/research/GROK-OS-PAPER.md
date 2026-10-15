@@ -15,14 +15,14 @@ controllers, compressed retrieval, proactive environment modeling, token-aware
 orchestration, and rigorous evaluation so that Grok is invoked only when its high-capability
 reasoning is actually needed.[cite:63][cite:69][cite:75] Rather than attempting to reproduce
 Grok-class scale locally, the system uses smaller specialized models on Apple hardware and
-reserves Grok Build for difficult coding, planning, and repair tasks.[cite:69][cite:71][cite:72]
+reserves the coding agent for difficult coding, planning, and repair tasks.[cite:69][cite:71][cite:72]
 Research thesis
 The strongest reading of the Apple research corpus is that performance comes from system
 design, not from one monolithic model alone.[cite:63][cite:64] Apple repeatedly separates roles
 across model tiers, uses shared foundations with specialized post-training, and optimizes
 models for hardware, privacy, and task-specific evaluation.[cite:63] Applied to Grok, this
 suggests a three-tier architecture: a local always-on controller, optional sparse or specialized
-local experts, and Grok Build as the remote high-capability execution and reasoning engine.
+local experts, and the coding agent as the remote high-capability execution and reasoning engine.
 [cite:63][cite:71]
 This architecture aligns with the user's own local-first, terminal-first, multi-model workflow
 and supports a sovereign research system that remains private by default while still leveraging
@@ -37,14 +37,14 @@ prompts, and model responses.[cite:1][cite:22] ParaRNN is attractive because it 
 nonlinear RNN training over sequence length, making large recurrent controllers far more
 practical than classic sequential RNNs while preserving efficient recurrent inference for
 streaming tasks.[cite:1][cite:6][cite:12] This controller should maintain persistent session state,
-predict the next best action, estimate risk, and decide when escalation to Grok Build is
+predict the next best action, estimate risk, and decide when escalation to the coding agent is
 warranted.[cite:59][cite:60]
 
 
 ## Page 2
 
 A strong V1 version should expose at least three learned heads: routing, context selection, and
-risk scoring.[cite:59][cite:60] Routing decides whether to invoke Grok Build, run a local tool,
+risk scoring.[cite:59][cite:60] Routing decides whether to invoke the coding agent, run a local tool,
 request clarification, or defer action.[cite:59] Context selection chooses which files, logs,
 summaries, and latent memories to send upstream.[cite:46][cite:81] Risk scoring predicts likely
 failure, unsafe execution, or low-confidence outcomes before expensive or dangerous actions
@@ -62,10 +62,10 @@ work, and a visual tokenization path inspired by AToken and related CVPR work.[c
 [cite:83][cite:79] Each module serves a narrow but high-leverage function: shorten context,
 allocate tokens more intelligently, clean training labels, and convert visual state into compact
 structured features before Grok is called.[cite:81][cite:83][attached_file:1]
-Tier 3: Grok Build as Cloud Pro
-Grok Build should be treated as the equivalent of a Cloud Pro tier: the highest-capability model
+Tier 3: the coding agent as Cloud Pro
+the coding agent should be treated as the equivalent of a Cloud Pro tier: the highest-capability model
 reserved for difficult code generation, multi-file refactors, planning, debugging, and complex
-reasoning.[cite:71][cite:63] Public information describes Grok Build as a powerful coding agent
+reasoning.[cite:71][cite:63] Public information describes the coding agent as a powerful coding agent
 available through an interactive TUI, headless mode, and an agent client, making it well suited
 as the execution specialist in a larger orchestrated system.[cite:71] The controller should
 therefore optimize not for “more Grok calls,” but for “better-timed Grok calls with cleaner,
@@ -140,7 +140,7 @@ different angle: performance improves when generation is treated as staged refin
 ## Page 4
 
 governed by learned policies rather than by brittle heuristics.[cite:80][attached_file:1] Applied
-to Grok Build, this means partial acceptance, targeted refinement, and block-wise revision are
+to the coding agent, this means partial acceptance, targeted refinement, and block-wise revision are
 more promising than single-shot acceptance of entire outputs.[cite:80]
 Loop 3: annotate, audit, distill
 The third loop turns usage into training data.[cite:83][cite:82] Human ratings, automated test
@@ -188,7 +188,7 @@ according to how much they push the system toward long or short reasoning regime
 [cite:81]
 A simple deployment pattern is to assign each task a predicted token horizon and a confidence
 interval, then compare expected reward from a Grok call against expected local resolution cost.
-[cite:81][cite:71] This can serve as the central policy for invoking Grok Build and is one of the
+[cite:81][cite:71] This can serve as the central policy for invoking the coding agent and is one of the
 clearest ways to convert research into measurable operational savings.[cite:71]
 1000X performance enhancement strategy
 The phrase “1000X performance enhancement” should be understood as a system-level
@@ -250,7 +250,7 @@ GROK-READY OPERATING SPEC
 ## Page 7
 
 Identity
-System name: ForgeRNN + Grok Build Operating System
+System name: ForgeRNN + the coding agent Operating System
 Primary role: local-first controller with Grok as remote execution and reasoning tier
 Primary objective: maximize successful task completion per token, per minute, and per human
 interruption
@@ -266,7 +266,7 @@ validation_requirements
 user_priority
 Decision policy
 1. Resolve locally if confidence is high and estimated cost is low.
-2. Escalate to Grok Build if task complexity, uncertainty, or refactor radius exceeds local
+2. Escalate to the coding agent if task complexity, uncertainty, or refactor radius exceeds local
 thresholds.
 3. Before escalation, compress context and remove low-signal evidence.
 4. Select execution mode: conservative, balanced, aggressive.

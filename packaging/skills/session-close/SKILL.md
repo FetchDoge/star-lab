@@ -47,7 +47,7 @@ Keep it short. Prefer durable memory + galaxy snapshot over a long chat recap.
 
 ## Doctrine pointers
 
-- Daily one-pager: `~/Projects/grok-home/docs/DAILY-OPERATING.md`
+- Daily one-pager: `<path-to-star-lab>/docs/DAILY-OPERATING.md`
 - Quality default: habit **A** (research log); habit **B** only on red tests/ship
 
 ## Automation already running

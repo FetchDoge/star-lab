@@ -26,7 +26,7 @@ lab body loop project:<name> --goal "<user task>"
 ### B. Multi-step work this session
 
 ```bash
-lab auto begin "<user task>" --project <name>   # or cwd inside ~/Projects/<name>
+lab auto begin "<user task>" --project <name>   # or cwd inside <projects-dir>/<name>
 # … implement …
 lab auto finish --quality 0.9                  # factory + complete + galaxy
 # optional: lab auto finish --publish
@@ -64,4 +64,4 @@ lab doctor / lab status / lab galaxy status
 
 On wrap / “done” / session-close: `galaxy-wrap` or `lab auto finish` if session open; always surface `lab galaxy status` (glance). Write durable memory when topology or doctrine changes.
 
-Doctrine: `~/Projects/grok-home/docs/HUMAN-MINIMAL-1000X.md`
+Doctrine: `<path-to-star-lab>/docs/HUMAN-MINIMAL-1000X.md`

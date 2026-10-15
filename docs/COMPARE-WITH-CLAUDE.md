@@ -84,7 +84,7 @@ bash <path-to-star-lab>/tests/test_lab_modules.sh
 # Human-openable
 open <path-to-star-lab>/dashboard/index.html
 open <path-to-star-lab>/showroom/index.html
-open ~/Projects/claude-compare-demo/index.html
+open <projects-dir>/claude-compare-demo/index.html
 ```
 
 ## What “100×” means here
