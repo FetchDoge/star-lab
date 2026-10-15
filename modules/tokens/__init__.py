@@ -1,4 +1,4 @@
-"""Token-Aware Control Plane (TACP) — LenVM-inspired routing for Grok Build."""
+"""Token-Aware Control Plane (TACP) — LenVM-inspired routing for the coding agent."""
 
 from .policy import (
     MODE_SHORT,

@@ -359,7 +359,7 @@ def cmd_distill(args: argparse.Namespace) -> int:
 def cmd_policy(args: argparse.Namespace) -> int:
     """Print the operating policy (forceful form)."""
     text = """
-TOKEN AWARENESS IS THE OPERATING POLICY (Grok Star Lab / Grok Build)
+TOKEN AWARENESS IS THE OPERATING POLICY (Star Lab / coding agent)
 
 1. Every task gets a predicted token horizon (LenVM-style value signal; free
    heuristic online, optional GROK_LENVM_CMD for trained probe).

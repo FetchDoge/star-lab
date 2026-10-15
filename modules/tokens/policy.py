@@ -1,7 +1,7 @@
 """
 Token-aware invocation policy.
 
-Operational rule (default for Grok Build / Star Lab):
+Operational rule (default for the coding agent / Star Lab):
   For every task, compute
       EV_grok = expected_reward(mode) - λ * predicted_token_cost
       EV_local = expected_reward_local - local_cost
