@@ -35,4 +35,4 @@ Also: `lab auto finish` if auto open; galaxy-wrap / session-close ritual.
 5. MEMORY.md only if handoff missing  
 6. Deep monorepo last  
 
-Doctrine: `~/Projects/grok-home/docs/NEW-CHAT-HANDOFF.md`
+Doctrine: `<path-to-star-lab>/docs/NEW-CHAT-HANDOFF.md`

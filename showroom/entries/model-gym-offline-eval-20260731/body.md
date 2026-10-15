@@ -3,7 +3,7 @@
 Model gym lane: offline evals against local Ollama (dolphin3 default), session handoff for remote Grok — referenced from Star Lab design and compare scorecard.
 
 - **kind:** experiment
-- **project:** grok-home
+- **project:** star-lab
 - **source:** seed
 
 ## Paths

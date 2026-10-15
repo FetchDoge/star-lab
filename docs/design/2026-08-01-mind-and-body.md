@@ -16,11 +16,11 @@
 
 ## Overview
 
-Grok Star Lab is a Mac-local free control plane for Grok Build. It already routes tokens, packs context, tracks experiments, recovers failed validations, isolates bad graph roles, and ships offline artifacts. What it does **not** yet do is treat those surfaces as a **body** — durable structure with identity, property, contact with reality, and limits — that a **mind** (Grok or any rented model) inhabits.
+Grok Star Lab is a Mac-local free control plane for the coding agent. It already routes tokens, packs context, tracks experiments, recovers failed validations, isolates bad graph roles, and ships offline artifacts. What it does **not** yet do is treat those surfaces as a **body** — durable structure with identity, property, contact with reality, and limits — that a **mind** (Grok or any rented model) inhabits.
 
 Will Chen’s thesis is the product doctrine: customers (and operators) will not pay for another chatbot on rented lab models. Pure capability has no shape. Agents become legible and defensible when intelligence lives inside a body whose edges you can see — the same way a CRM is contacts/deals and an IDE is files/errors/builds. Coding agents work because they inherit a computer body; business and lab agents must **build** one.
 
-This document maps mind vs body onto existing Star Lab modules, defines a first-class **Body** abstraction for lab and project work on this Mac, composes **organs** (research, forge, ship, tokens, graph, knowledge, arena) with standing procedures, ties skill/memory promotion to bodies only, shows how four-stage rollout + breakers + token policy protect the body (not just model choice), and specifies a vertical slice on the **grok-home lab body** and **starlab-demo project body**. Free/offline first. Multi-tenant is **schema room only** (`tenant: "local"`) — not a product roadmap item in this design.
+This document maps mind vs body onto existing Star Lab modules, defines a first-class **Body** abstraction for lab and project work on this Mac, composes **organs** (research, forge, ship, tokens, graph, knowledge, arena) with standing procedures, ties skill/memory promotion to bodies only, shows how four-stage rollout + breakers + token policy protect the body (not just model choice), and specifies a vertical slice on the **star-lab lab body** and **starlab-demo project body**. Free/offline first. Multi-tenant is **schema room only** (`tenant: "local"`) — not a product roadmap item in this design.
 
 ---
 
@@ -103,7 +103,7 @@ This is **not** a SaaS chatbot startup and not an “agent product platform” p
 ### Non-Goals
 
 1. Building a multi-tenant SaaS control plane or billing in v1.
-2. Replacing Grok Build as the primary mind, or training a private frontier model.
+2. Replacing the coding agent as the primary mind, or training a private frontier model.
 3. Inventing a full tool gateway / allowlist bus in the body PRs (depends on breaker KD-17; body *limits* annotate until enforcement exists).
 4. Auto-ingesting all MCP events into obligations in v1 (webhook organ stub + 1–2 producers only).
 5. Pricing/outcome metering product (Intercom-style) — document the shape; no Stripe.
@@ -118,7 +118,7 @@ This is **not** a SaaS chatbot startup and not an “agent product platform” p
 
 | Component | What the mind does | Where it lives |
 |-----------|--------------------|----------------|
-| Grok Build / session agent | Plans, writes, calls tools, interprets failures | External TUI / session; not in monorepo |
+| the coding agent / session agent | Plans, writes, calls tools, interprets failures | External TUI / session; not in monorepo |
 | `lab tokens route` | Interprets task → horizon → EV mode | `modules/tokens/policy.py` |
 | `lab graph route-context` | Interprets which memory slices a role needs | `modules/graph/router.py`, `scorer.py` |
 | `lab sqc` | Interprets annotation quality | `modules/sqc/` |
@@ -132,7 +132,7 @@ This is **not** a SaaS chatbot startup and not an “agent product platform” p
 
 | Component | Body facet | Maturity today | Gap |
 |-----------|------------|----------------|-----|
-| `~/Projects/<name>` + git + tests | Property + coding body (inherited) | Strong for coding agents | Not registered as Body |
+| `<projects-dir>/<name>` + git + tests | Property + coding body (inherited) | Strong for coding agents | Not registered as Body |
 | `AGENTS.md` / project README | Weak identity | Per-repo conventions | No address / body_id |
 | `~/.grok/lab/experiments.db` | Property (ledger of runs) | Strong offline | Optional `project` string only |
 | `token_policy.db`, shadow, rollout | Property + limits | Strong | Global, not body-scoped |
@@ -154,7 +154,7 @@ This is **not** a SaaS chatbot startup and not an “agent product platform” p
 ```mermaid
 flowchart TB
   subgraph Mind["MIND — control & interpretation (rented / swappable)"]
-    Grok["Grok Build / session agent"]
+    Grok["the coding agent / session agent"]
     Route["tokens route EV"]
     GraphR["graph route-context"]
     SQC["sqc quality"]
@@ -217,8 +217,8 @@ Body
 | `kind` | `lab` \| `project` \| `system` | `project` |
 | `name` | Grok Star Lab control plane | starlab-demo |
 | `domain` | local (no public DNS v1) | local |
-| `address` | `lab://grok-home` (CLI/logical) | `project://starlab-demo` → `~/Projects/starlab-demo` |
-| `repo_path` | `<path-to-star-lab>` | `~/Projects/starlab-demo` |
+| `address` | `lab://grok-home` (CLI/logical) | `project://starlab-demo` → `<projects-dir>/starlab-demo` |
+| `repo_path` | `<path-to-star-lab>` | `<projects-dir>/starlab-demo` |
 | `tenant` | `local` | `local` |
 
 **Address** is the anti-chatbot edge: something the world (hooks, webhooks, scripts) can target without a chat open.
@@ -229,7 +229,7 @@ SQLite files under `~/.grok/lab/*.db` are **shared infrastructure**, not exclusi
 
 | Tier | What counts as property | Examples |
 |------|-------------------------|----------|
-| **Lab body** (`lab:grok-home`) | Control-plane state + lab-repo artifacts | Body registry; rollout/shadow/token policy **global** state; lab doctor/KPI boards; forge/design/showroom rows with `project=grok-home` or `body_id=lab:grok-home`; repo `<path-to-star-lab>` |
+| **Lab body** (`lab:grok-home`) | Control-plane state + lab-repo artifacts | Body registry; rollout/shadow/token policy **global** state; lab doctor/KPI boards; forge/design/showroom rows with `project=star-lab` or `body_id=lab:grok-home`; repo `<path-to-star-lab>` |
 | **Project body** (`project:*`) | Rows + paths keyed to that project | Git `repo_path`; forge/design/knowledge/showroom/research rows with matching `project_key` / `body_id`; project packets |
 | **Shared infrastructure** | On-disk multi-project stores | `experiments.db`, `token_policy.db`, `research_log.db`, `graph_routes.db`, knowledge FTS files — **filtered**, not owned |
 
@@ -710,8 +710,8 @@ Binding into existing modules (thin, optional env/flag):
 lab body help
 
 # Identity / resolve
-lab body init --kind project --name starlab-demo --repo ~/Projects/starlab-demo
-lab body init --kind lab --name grok-home --repo <path-to-star-lab>
+lab body init --kind project --name starlab-demo --repo <projects-dir>/starlab-demo
+lab body init --kind lab --name star-lab --repo <path-to-star-lab>
 lab body list [--json]
 lab body show <body_id|name>
 lab body status <body_id>          # organs + limits + open obligations + row counts (not "owns db")
@@ -747,7 +747,7 @@ lab body scaffold <name> [--stack py]  # new-project + body init + AGENTS body b
 
 ### Extend project scaffold (`new-project` skill + `lab body scaffold`)
 
-After creating `~/Projects/<name>`:
+After creating `<projects-dir>/<name>`:
 
 1. `lab body init --kind project --name <name> --repo …`
 2. Append AGENTS.md **Body** section:

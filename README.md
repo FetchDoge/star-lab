@@ -173,7 +173,7 @@ Hand this to yourself after both agents "set up home":
 | `~/.grok/hooks/` | Safety guard (never clobbered by `lab install`) |
 | `~/.grok/skills/` | Personal skills |
 | `~/.grok/workflows/home-audit.rhai` | Multi-agent home audit |
-| `~/Projects/` | Code root |
+| `<projects-dir>/` | Code root |
 | `~/homebrew/` | User-local package manager (no sudo) |
 
 ## Notes

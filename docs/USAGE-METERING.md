@@ -37,8 +37,8 @@ lab tokens distill
 ```bash
 gh auth login
 cd <path-to-star-lab>
-gh repo create grok-home --private --source=. --remote=github --push
-# or: git remote add github git@github.com:USER/grok-home.git && git push -u github main
+gh repo create star-lab --private --source=. --remote=github --push
+# or: git remote add github git@github.com:USER/star-lab.git && git push -u github main
 ```
 
 Until then `origin` remains local: `<local-origin-repo>.git`.

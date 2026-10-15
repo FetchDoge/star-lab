@@ -49,7 +49,7 @@ The lab is implemented by **expanding the existing monorepo path** `<path-to-sta
 | Disk | ~1.6 TiB free on home volume | headroom for lab data |
 | Sessions | `~/.grok/sessions/` (~7.5M early) | separate from lab knowledge index |
 | Aliases | `~/.bashrc` | `ghstatus`, `ghdoctor`, `ghdash`; `$PROJECTS`; brew shellenv |
-| Shims | `~/.local/bin/grok-doctor`, `grok-status`, `grok-home` | point at grok-home bins |
+| Shims | `~/.local/bin/grok-doctor`, `grok-status`, `star-lab` | point at star-lab bins |
 
 ### Pain points
 
@@ -64,7 +64,7 @@ The lab is implemented by **expanding the existing monorepo path** `<path-to-sta
 
 ### Why free-to-run high-end
 
-Professional AI labs often default to Weights & Biases, LangSmith, cloud vector DBs, Datadog, and hosted GPU playgrounds. Those remain optional later. On this Mac: **zero required paid SaaS for core offline operation**, user-local installs (no sudo), maximize Grok Build strengths when a session *is* available without making them hard dependencies.
+Professional AI labs often default to Weights & Biases, LangSmith, cloud vector DBs, Datadog, and hosted GPU playgrounds. Those remain optional later. On this Mac: **zero required paid SaaS for core offline operation**, user-local installs (no sudo), maximize the coding agent strengths when a session *is* available without making them hard dependencies.
 
 ---
 
@@ -382,7 +382,7 @@ from pathlib import Path
 import os
 
 HOME = Path.home()
-LAB_REPO = Path(os.environ.get("GROK_LAB_REPO", str(HOME / "Projects" / "grok-home")))
+LAB_REPO = Path(os.environ.get("GROK_LAB_REPO", str(HOME / "Projects" / "star-lab")))
 GROK_HOME = Path(os.environ.get("GROK_HOME", str(HOME / ".grok")))
 LAB_DATA = Path(os.environ.get("GROK_LAB_DATA", str(GROK_HOME / "lab")))
 PROJECTS = Path(os.environ.get("PROJECTS", str(HOME / "Projects")))
@@ -557,7 +557,7 @@ python3 -c "from pathlib import Path; import os,sys; sys.path.insert(0,'$GROK_LA
 **Example:**
 
 ```bash
-lab forge run --name gym-smoke-dolphin3 --project grok-home --tag gym -- \
+lab forge run --name gym-smoke-dolphin3 --project star-lab --tag gym -- \
   lab gym eval smoke
 ```
 
@@ -694,7 +694,7 @@ sequenceDiagram
 | **Purpose** | Registry of design docs; paths under projects. |
 | **Local stack** | Markdown + catalog tables in lab DB. |
 | **Interfaces** | `lab design list\|open\|register` |
-| **Canonical path** | `~/Projects/<project>/docs/design/<YYYY-MM-DD>-<slug>.md` |
+| **Canonical path** | `<projects-dir>/<project>/docs/design/<YYYY-MM-DD>-<slug>.md` |
 
 `lab design register <path> [--project] [--slug] [--showroom]` copies/records pointer; `--showroom` → capture API inbox only.
 
@@ -771,8 +771,8 @@ Doctor: missing generation capability → never fail; verify tooling missing `si
 |--------|---------|
 | Memory | `~/.grok/memory/**/*.md` |
 | Rules | `~/.grok/rules/**/*.md` |
-| Project agents | `~/Projects/*/AGENTS.md` |
-| Design docs | `~/Projects/*/docs/**/*.md` |
+| Project agents | `<projects-dir>/*/AGENTS.md` |
+| Design docs | `<projects-dir>/*/docs/**/*.md` |
 | Showroom | `showroom/entries/**` |
 | Experiment notes | `~/.grok/lab/experiments/**/meta.md` |
 
@@ -873,7 +873,7 @@ Writes `~/.grok/lab/showroom/inbox/<capture_id>.json` with payload (title, kind,
 2. **Secrets gate:** scan payload paths + body text with regex (`AKIA[0-9A-Z]{16}`, `BEGIN (RSA |OPENSSH )?PRIVATE KEY`, `api[_-]?key\s*=`, etc.). On hit: abort that entry with message.
 3. Allocate stable `entry_id` = slug(title) + date; on collision append short hash.
 4. Write `showroom/entries/<entry_id>/meta.json` + `body.md`.
-5. Paths in meta stored as **repo-relative or `~/Projects/...` portable strings**, not machine-specific absolute home-directory hardcodes when avoidable (`lab_paths` helper to rewrite).
+5. Paths in meta stored as **repo-relative or `<projects-dir>/...` portable strings**, not machine-specific absolute home-directory hardcodes when avoidable (`lab_paths` helper to rewrite).
 6. Run `modules/showroom/regen_index.py`: rebuild `showroom/index.html` from all entries’ meta (deterministic sort by date desc).
 7. Mark inbox item `published=1` (or move to `inbox/done/`).
 8. Print optional `git add showroom/entries/<id> showroom/index.html` — user commits; lab never force-commits.
@@ -1031,7 +1031,7 @@ write_data_embed_js = true
 
 ## Alternatives Considered
 
-### A — Separate repo `~/Projects/grok-lab`
+### A — Separate repo `<projects-dir>/grok-lab`
 
 Pros: greenfield. Cons: splits doctor/alias/MEMORY. **Rejected (K2).** Note: in-place monorepo will grow; mitigate with `modules/` boundaries. compare-demo remains sibling, not vendored.
 

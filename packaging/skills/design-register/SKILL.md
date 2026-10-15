@@ -12,7 +12,7 @@ When the user finishes a design doc or asks to catalog architecture/specs for Gr
    lab design register <path> [--project NAME] [--slug SLUG] [--showroom]
    ```
    - Copies into the canonical tree when `--project` is known:
-     `~/Projects/<project>/docs/design/<YYYY-MM-DD>-<slug>.md`
+     `<projects-dir>/<project>/docs/design/<YYYY-MM-DD>-<slug>.md`
    - Use `--no-copy` to record a pointer only.
    - `--showroom` writes **inbox only** (`~/.grok/lab/showroom/inbox/`) — never auto-publish.
 

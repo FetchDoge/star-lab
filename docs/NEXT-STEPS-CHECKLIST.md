@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-01  
 **Repo:** `<path-to-star-lab>` **main**  
-**Operator:** Grok Build (automated run of the ranked do-list)
+**Operator:** the coding agent (automated run of the ranked do-list)
 
 ---
 
@@ -75,7 +75,7 @@
 ```bash
 gh auth login
 cd <path-to-star-lab>
-gh repo create grok-home --private --source=. --remote=github --push
+gh repo create star-lab --private --source=. --remote=github --push
 ```
 
 ---
