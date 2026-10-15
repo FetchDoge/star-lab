@@ -78,12 +78,12 @@ lab ship check --no-doctor
 lab dash   # snapshot + open Mission Control
 
 # Safety isolation (read-only + temp GROK_HOME copy)
-bash ~/Projects/grok-home/tests/test_safety_regression.sh
-bash ~/Projects/grok-home/tests/test_lab_modules.sh
+bash <path-to-star-lab>/tests/test_safety_regression.sh
+bash <path-to-star-lab>/tests/test_lab_modules.sh
 
 # Human-openable
-open ~/Projects/grok-home/dashboard/index.html
-open ~/Projects/grok-home/showroom/index.html
+open <path-to-star-lab>/dashboard/index.html
+open <path-to-star-lab>/showroom/index.html
 open ~/Projects/claude-compare-demo/index.html
 ```
 

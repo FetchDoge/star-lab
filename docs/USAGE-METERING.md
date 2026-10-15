@@ -36,17 +36,17 @@ lab tokens distill
 
 ```bash
 gh auth login
-cd ~/Projects/grok-home
+cd <path-to-star-lab>
 gh repo create grok-home --private --source=. --remote=github --push
 # or: git remote add github git@github.com:USER/grok-home.git && git push -u github main
 ```
 
-Until then `origin` remains local: `<projects-dir>/grok-home-origin.git`.
+Until then `origin` remains local: `<local-origin-repo>.git`.
 
 ## Local helper
 
 ```bash
 # Edit endpoint first:
 $EDITOR ~/.grok/lab/otel.env
-bash ~/Projects/grok-home/scripts/check-otel-env.sh
+bash <path-to-star-lab>/scripts/check-otel-env.sh
 ```

@@ -1,7 +1,7 @@
 # Next-steps completion checklist
 
 **Date:** 2026-08-01  
-**Repo:** `~/Projects/grok-home` **main**  
+**Repo:** `<path-to-star-lab>` **main**  
 **Operator:** Grok Build (automated run of the ranked do-list)
 
 ---
@@ -64,7 +64,7 @@
 - [ ] Create GitHub repo / set remote
 - [ ] `git push` main to GitHub
 - [x] Documented in `docs/USAGE-METERING.md` and this checklist
-- [x] Local `origin` still works: `~/Projects/grok-home-origin.git`
+- [x] Local `origin` still works: `<local-origin-repo>.git`
 
 **Adds (when done):** Off-box backup, PRs, share.  
 **Takes away:** Pure offline git distribution.  
@@ -74,7 +74,7 @@
 
 ```bash
 gh auth login
-cd ~/Projects/grok-home
+cd <path-to-star-lab>
 gh repo create grok-home --private --source=. --remote=github --push
 ```
 

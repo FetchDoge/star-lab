@@ -3,7 +3,7 @@
 **Date:** 2026-08-01  
 **Plan:** session plan “Closed-loop token policy research program”  
 **Thread:** [Perplexity token-awareness chat](https://www.perplexity.ai/search/4d5b59f7-bc73-48c4-8ac5-7a64479965bd)  
-**Lab baseline:** `~/Projects/grok-home` TACP (`modules/tokens/`), research goldens, SQC  
+**Lab baseline:** `<path-to-star-lab>` TACP (`modules/tokens/`), research goldens, SQC  
 
 **Access note:** The live Perplexity URL is behind Cloudflare from this agent host. Cross-check used (1) the full closed-loop program text the user pasted from that thread, (2) primary sources cited in that thread and re-fetched independently, (3) in-repo TACP docs and code.
 

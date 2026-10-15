@@ -16,13 +16,13 @@
 
 ## Overview
 
-Grok Home (`~/Projects/grok-home`) already delivers a durable control plane: exit-coded `bin/doctor`, one-screen `bin/status`, `bin/launch`, a Tokyo Night mission-control HTML dashboard, personal skills (`session-close`, `new-project`, `ship-it`, `home-doctor`), a safety hook under always-approve, user-local Homebrew, Ollama (`dolphin3`), memory, home rules, and a `home-audit.rhai` workflow. That is a world stage — not a lab. Today `lib/`, `scripts/`, and `tests/` exist as empty stubs to fill; the repo is **not yet a git repository**.
+Grok Home (`<path-to-star-lab>`) already delivers a durable control plane: exit-coded `bin/doctor`, one-screen `bin/status`, `bin/launch`, a Tokyo Night mission-control HTML dashboard, personal skills (`session-close`, `new-project`, `ship-it`, `home-doctor`), a safety hook under always-approve, user-local Homebrew, Ollama (`dolphin3`), memory, home rules, and a `home-audit.rhai` workflow. That is a world stage — not a lab. Today `lib/`, `scripts/`, and `tests/` exist as empty stubs to fill; the repo is **not yet a git repository**.
 
 **Grok Star Lab** is the next evolution: a free-to-run, local-first research/engineering laboratory that multiplies Grok Home into twelve interlocking modules — experiment tracking, model playground, multi-agent arena, design studio, ship bay, Imagine asset atelier, knowledge crucible, observability, sandboxes, optional MCP docks, and a permanent Showroom of best work.
 
 **Honesty about free/offline:** Core lab success criteria bind to the **offline tier** only (doctor, forge, gym-vs-Ollama, knowledge FTS, showroom, dashboard embed, ship local checks, sandbox profile install, imagine *verify*). Multi-agent Rhai workflows, Imagine *generation*, MCP Dock probes, and remote Grok models are **optional online / Grok-session tiers** that degrade without failing core doctor. See [Offline vs online tier matrix](#offline-vs-online-tier-matrix).
 
-The lab is implemented by **expanding the existing monorepo path** `~/Projects/grok-home` in place (product rebrand + `bin/lab` CLI facade first), not by forking into a parallel `grok-lab` tree. Mutable state lives at `~/.grok/lab/`. Runtime skills/workflows are **packaged in-repo** and installed into `~/.grok/` by `lab install`.
+The lab is implemented by **expanding the existing monorepo path** `<path-to-star-lab>` in place (product rebrand + `bin/lab` CLI facade first), not by forking into a parallel `grok-lab` tree. Mutable state lives at `~/.grok/lab/`. Runtime skills/workflows are **packaged in-repo** and installed into `~/.grok/` by `lab install`.
 
 ---
 
@@ -32,7 +32,7 @@ The lab is implemented by **expanding the existing monorepo path** `~/Projects/g
 
 | Layer | Path / fact | Role today |
 |-------|-------------|------------|
-| Control plane | `~/Projects/grok-home` (~304K) | doctor / status / launch / static dashboard / hero |
+| Control plane | `<path-to-star-lab>` (~304K) | doctor / status / launch / static dashboard / hero |
 | Empty stubs | `lib/`, `scripts/`, `tests/` | directories exist; fill in lab PRs |
 | Git | **not a repository yet** | PR0 initializes |
 | Runtime | `~/.grok/` (~164–166M incl. sessions) | config, memory, rules, hooks, skills, workflows, logs |
@@ -120,7 +120,7 @@ Professional AI labs often default to Weights & Biases, LangSmith, cloud vector 
 | # | Decision | Rationale |
 |---|----------|-----------|
 | K1 | **Product name: Grok Star Lab** | Fits CLI `lab`, UI “Star Lab”; working name retired. |
-| K2 | **Expand `~/Projects/grok-home` in place** | Avoids splitting doctor/alias/MEMORY/COMPARE paths. Accept monorepo growth; compare-demo stays a sibling project under `~/Projects`, only *referenced* by Showroom. |
+| K2 | **Expand `<path-to-star-lab>` in place** | Avoids splitting doctor/alias/MEMORY/COMPARE paths. Accept monorepo growth; compare-demo stays a sibling project under `~/Projects`, only *referenced* by Showroom. |
 | K3 | **Data root: `~/.grok/lab/`** | Mutable lab state out of git; mirrors Grok’s `~/.grok` vs `~/Projects` split. |
 | K4 | **`bin/lab` is a facade first**; existing `bin/doctor` / `bin/status` stay self-contained until a later invert | Prevents PR1 big-bang rewrite of the proven ~144-line doctor. See PR plan PR1/PR1b/PR2. |
 | K5 | **Experiment store: SQLite + Markdown dual-write** | Zero daemon; WAL mode; single-writer v1. MLflow is document-only in v1 (K18) — not installed or packaged. |
@@ -140,7 +140,7 @@ Professional AI labs often default to Weights & Biases, LangSmith, cloud vector 
 | K19 | **No headless workflow execution in v1** | Defer `--try-headless` / `grok -p` workflow launches to **v1.1**. Arena offline = script pipelines; Rhai stays in-session via `/workflow`. |
 | K20 | **Gym dual model policy: remote when available** | For “best work” evals (`lab gym eval` with best-work / non-smoke intent, or `--track best`): prefer remote Grok model when authenticated; fall back to `dolphin3:latest` offline or unauthenticated. Offline success criteria and smoke suite still use dolphin3 (K15). |
 | K21 | **Optional embeddings default model: `nomic-embed-text`** | When `use_embeddings=true` and user pulls an embed model, default is `nomic-embed-text` via Ollama. Embeddings remain off by default (K8). |
-| K22 | **Canonical design doc path** | Durable copy lives at `~/Projects/grok-home/docs/GROK-STAR-LAB-DESIGN.md` (not `STAR-LAB.md`). |
+| K22 | **Canonical design doc path** | Durable copy lives at `<path-to-star-lab>/docs/GROK-STAR-LAB-DESIGN.md` (not `STAR-LAB.md`). |
 
 ---
 
@@ -157,7 +157,7 @@ flowchart TB
     GrokTUI["Grok TUI session workflows optional"]
   end
 
-  subgraph StarLab["Monorepo ~/Projects/grok-home"]
+  subgraph StarLab["Monorepo <path-to-star-lab>"]
     CLI
     MC
     SR
@@ -199,7 +199,7 @@ flowchart TB
 ### Target directory tree
 
 ```text
-~/Projects/grok-home/                    # Grok Star Lab monorepo (path unchanged)
+<path-to-star-lab>/                    # Grok Star Lab monorepo (path unchanged)
 ├── AGENTS.md
 ├── README.md
 ├── bin/
@@ -921,7 +921,7 @@ flowchart LR
 7. **Bashrc:** ensure additive block:
    ```bash
    # >>> grok-star-lab >>>
-   alias lab='$HOME/Projects/grok-home/bin/lab'
+   alias lab='<path-to-star-lab>/bin/lab'
    # keep ghstatus/ghdoctor/ghdash forever; optionally point them at lab:
    # alias ghdoctor='lab doctor'  # only if doctor facade ready
    # <<< grok-star-lab <<<
@@ -1166,10 +1166,10 @@ All previously open product questions are resolved by user decision (rev 3). Non
 
 | Resource | Path |
 |----------|------|
-| Grok Home README / AGENTS | `~/Projects/grok-home/` |
-| Doctor / status / launch | `~/Projects/grok-home/bin/*` |
-| Mission Control | `~/Projects/grok-home/dashboard/index.html` |
-| COMPARE / PROOF | `~/Projects/grok-home/docs/` |
+| Grok Home README / AGENTS | `<path-to-star-lab>/` |
+| Doctor / status / launch | `<path-to-star-lab>/bin/*` |
+| Mission Control | `<path-to-star-lab>/dashboard/index.html` |
+| COMPARE / PROOF | `<path-to-star-lab>/docs/` |
 | Home Charter / Memory / Config | `~/.grok/rules/home.md`, `memory/MEMORY.md`, `config.toml` |
 | Safety | `~/.grok/hooks/*` |
 | home-audit workflow | `~/.grok/workflows/home-audit.rhai` |

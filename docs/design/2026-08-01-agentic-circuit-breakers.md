@@ -6,7 +6,7 @@
 | **Author** | Grok Star Lab design loop |
 | **Date** | 2026-08-01 |
 | **Status** | Draft (rev 3 — re-review) |
-| **Repo** | `~/Projects/grok-home` |
+| **Repo** | `<path-to-star-lab>` |
 | **Audience** | Senior engineers extending the free offline Mac-local control plane |
 | **Python baseline** | 3.9+ (host ships 3.9.6; avoid 3.10+ syntax) |
 | **Related** | `docs/research/CLOSED-LOOP-GATES.md`, `docs/research/GRAPH-CONTEXT-ROUTING.md`, `docs/TOKEN-AWARE-CONTROL-PLANE.md` |

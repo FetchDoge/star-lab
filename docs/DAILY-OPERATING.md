@@ -1,7 +1,7 @@
 # Daily operating — use this / ignore that
 
 **One page.** Control plane + optional lab. Not obligations every turn.  
-**Repo:** `~/Projects/grok-home` · **CLI:** `lab` · **Adopted:** 2026-08-03  
+**Repo:** `<path-to-star-lab>` · **CLI:** `lab` · **Adopted:** 2026-08-03  
 **Human-minimal 1000×:** `docs/HUMAN-MINIMAL-1000X.md` — Grok runs ceremony; human states intent.
 
 ---
@@ -36,7 +36,7 @@ lab tokens route "implement feature X in project Y"
 
 ```bash
 lab galaxy status    # bright / stable / dim
-# optional: open ~/Projects/grok-home/galaxy/index.html
+# optional: open <path-to-star-lab>/galaxy/index.html
 ```
 
 **Why:** Feedback without meetings. Harvest, don’t invent.
@@ -81,8 +81,8 @@ Habit **B** (packets) is **on-failure only**, not daily.
 |-------|---------|
 | World stage health | `lab doctor` |
 | Token suite vs unbounded | `GROK_TOKEN_PACK=aggressive lab tokens savings vs-claude` |
-| Safety still hard | `bash ~/Projects/grok-home/tests/test_safety_regression.sh` |
-| Modules still wired | `bash ~/Projects/grok-home/tests/test_lab_modules.sh` |
+| Safety still hard | `bash <path-to-star-lab>/tests/test_safety_regression.sh` |
+| Modules still wired | `bash <path-to-star-lab>/tests/test_lab_modules.sh` |
 
 **Why:** Trust is files + exit codes. Measure when you want proof, not as busywork.
 

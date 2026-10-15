@@ -1,7 +1,7 @@
 # 1000× System Multiplier — Star Lab doctrine
 
 **Status:** durable operating doctrine (not a marketing claim)  
-**Repo:** `~/Projects/grok-home`  
+**Repo:** `<path-to-star-lab>`  
 **CLI:** `lab compound 1000x` · `lab compound status` · `lab body kpi --waste`  
 **Related:** `docs/COMPOUNDING-ROUNDS.md`, `docs/TOKEN-SAVINGS-100X.md`, `docs/ROUTING-ROI.md`, `docs/PAPER-TO-LAB-MAP.md`
 

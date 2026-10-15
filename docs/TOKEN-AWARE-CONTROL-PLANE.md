@@ -37,7 +37,7 @@ Re-install hooks anytime:
 ```bash
 lab install
 # or
-bash ~/Projects/grok-home/scripts/install-lab.sh
+bash <path-to-star-lab>/scripts/install-lab.sh
 ```
 
 ---
