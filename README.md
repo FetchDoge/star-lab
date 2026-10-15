@@ -6,9 +6,9 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-3776AB.svg)](.github/workflows/lab-ci.yml)
 
-Star Lab is the local control plane built for a fair head-to-head between coding agents. It covers memory, safety under always-approve, project roots, CLI tooling, skills, a scoring doctor and a dashboard. **Grok Star Lab** adds experiment tracking, a model gym and a showroom, all offline-first. Not affiliated with xAI.
+Star Lab is the local control plane built for a fair head-to-head between coding agents. It covers memory, safety under always-approve, project roots, CLI tooling, skills, a scoring doctor and a dashboard. **Star Lab** adds experiment tracking, a model gym and a showroom, all offline-first. Not affiliated with xAI.
 
-![Grok Home](assets/hero.jpg)
+![Star Lab](assets/hero.jpg)
 
 ## What it guarantees
 
@@ -147,7 +147,7 @@ lab doctor   # includes lab.module.* matrix rows
 4. **Terrain is real** — projects have a home; scaffolds write `AGENTS.md` so the next session inherits context.
 5. **Human-facing surface** — CLI + HTML mission control + generated brand art.
 
-## Compare checklist (Grok vs Claude)
+## Compare checklist (head-to-head)
 
 Hand this to yourself after both agents "set up home":
 
@@ -167,7 +167,7 @@ Hand this to yourself after both agents "set up home":
 |------|------|
 | `bin/lab` | Unified Star Lab CLI facade |
 | `~/.grok/lab/` | Lab data root (experiments, metrics, showroom inbox) |
-| `~/.grok/config.toml` | Grok runtime config |
+| `~/.grok/config.toml` | Agent runtime config |
 | `~/.grok/memory/MEMORY.md` | Global durable memory |
 | `~/.grok/rules/home.md` | Always-on charter |
 | `~/.grok/hooks/` | Safety guard (never clobbered by `lab install`) |

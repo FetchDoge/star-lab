@@ -156,7 +156,7 @@ def render_markdown(packet: Dict[str, Any]) -> str:
 {packet.get('notes') or '—'}
 
 ---
-_Use this packet when escalating to Grok Build. Do not paste the whole repo._
+_Use this packet when escalating to the coding agent. Do not paste the whole repo._
 """
 
 
