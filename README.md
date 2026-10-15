@@ -2,7 +2,7 @@
 
 **Gives a local coding agent durable memory, a deny list under always-approve, a health doctor that scores the machine, and a mission-control dashboard. Offline-first.**
 
-[![lab-ci](https://github.com/marsojuji-cmyk/star-lab/actions/workflows/lab-ci.yml/badge.svg)](https://github.com/marsojuji-cmyk/star-lab/actions/workflows/lab-ci.yml)
+[![lab-ci](https://github.com/FetchDoge/star-lab/actions/workflows/lab-ci.yml/badge.svg)](https://github.com/FetchDoge/star-lab/actions/workflows/lab-ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-3776AB.svg)](.github/workflows/lab-ci.yml)
 
@@ -20,7 +20,7 @@ Star Lab is the local control plane built for a fair head-to-head between coding
 ## Quickstart
 
 ```bash
-git clone https://github.com/marsojuji-cmyk/star-lab && cd star-lab
+git clone https://github.com/FetchDoge/star-lab && cd star-lab
 python3 -m unittest tests.test_tokens tests.test_forge -q   # what CI runs
 bash tests/test_lab_cli.sh
 bin/lab install        # dirs + ~/.local/bin/lab symlink (idempotent)
