@@ -160,10 +160,14 @@ def _open_path(path: Path) -> int:
         except OSError as exc:
             print("error: EDITOR failed: %s" % exc, file=sys.stderr)
             return 1
+    opener = None
     if sys.platform == "darwin" and _which("open"):
-        return int(subprocess.call(["open", str(path)]))
-    if _which("xdg-open"):
-        return int(subprocess.call(["xdg-open", str(path)]))
+        opener = "open"
+    elif _which("xdg-open"):
+        opener = "xdg-open"
+    if opener and subprocess.call([opener, str(path)]) == 0:
+        return 0
+    # No opener, or it failed (e.g. headless host with no browser): print the path.
     print(path)
     return 0
 

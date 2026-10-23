@@ -26,6 +26,17 @@ HERO = ROOT / "assets" / "hero.jpg"
 LAB_BIN = ROOT / "bin" / "lab"
 
 sys.path.insert(0, str(LIB))
+
+
+def _load_module_cli(module_dir: Path):
+    """Load <module_dir>/cli.py by path. A bare `import cli` resolves to
+    whichever module directory another test file put first on sys.path."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cli", module_dir / "cli.py")
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules["cli"] = mod
+    spec.loader.exec_module(mod)
+    return mod
 sys.path.insert(0, str(IMAGINE))
 
 
@@ -47,7 +58,7 @@ class ImagineVerifyTest(unittest.TestCase):
             if mod in ("lab_paths", "cli") or mod.startswith("modules.imagine"):
                 del sys.modules[mod]
 
-        import cli as imagine_cli  # noqa: E402
+        imagine_cli = _load_module_cli(IMAGINE)
 
         self.cli = imagine_cli
 

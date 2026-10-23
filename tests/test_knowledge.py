@@ -22,6 +22,17 @@ sys.path.insert(0, str(KNOW))
 sys.path.insert(0, str(LIB))
 
 
+def _load_module_cli(module_dir: Path):
+    """Load <module_dir>/cli.py by path. A bare `import cli` resolves to
+    whichever module directory another test file put first on sys.path."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cli", module_dir / "cli.py")
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules["cli"] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
 class KnowledgeFTSTest(unittest.TestCase):
     def setUp(self) -> None:
         self.tmpdir = Path(tempfile.mkdtemp(prefix="lab-knowledge-test."))
@@ -277,7 +288,7 @@ class CliDispatchTest(unittest.TestCase):
         shutil.rmtree(self.tmpdir, ignore_errors=True)
 
     def test_cli_index_query_status(self) -> None:
-        import cli as knowledge_cli
+        knowledge_cli = _load_module_cli(KNOW)
 
         self.assertEqual(knowledge_cli.main(["index"]), 0)
         self.assertEqual(knowledge_cli.main(["status"]), 0)
